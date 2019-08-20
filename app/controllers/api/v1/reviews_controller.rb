@@ -11,6 +11,11 @@ module Api
         render json: { status: 'SUCCESS', message: 'loaded the review', data: review }
       end
 
+      def shop_show
+        shop_reviews = Review.where(shop_id: params[:shop_id])
+        render json: { status: 'SUCCESS', message: 'loaded the review', data: shop_reviews }
+      end
+
       def create
         review = Review.new(review_params)
         if review.save
