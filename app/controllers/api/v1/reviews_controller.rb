@@ -2,7 +2,7 @@ module Api
   module V1
     class ReviewsController < ApplicationController
       def index
-        reviews = Review.where(shop_id: params[:shop_id])
+        reviews = Review.all
         render json: { status: 'SUCCESS', message: 'loaded reviews', data: reviews }
       end
 
