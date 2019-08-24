@@ -1,6 +1,6 @@
 # README
 
-## ローカルでサーバーを立ち上げる
+## セットアップ方法
 
 $ git clone https://github.com/katsuomi/SearchShopApp-api-server.git 
 
