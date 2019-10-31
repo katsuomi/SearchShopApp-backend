@@ -1,4 +1,4 @@
-# SearchShopApp-api
+# SearchShopApp-backend
 
 ## 💬 About
 
