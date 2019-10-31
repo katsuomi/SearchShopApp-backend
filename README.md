@@ -3,7 +3,7 @@
 ## 💬 About
 
 近くのお店が検索できるアプリのバックエンドAPIです。
-rubyのWebフレームワークRailsを利用。
+rubyのWebフレームワークRuby on Railsを利用。
 
 ## 🌻 Version
 
