@@ -1,16 +1,49 @@
-# README
+# SearchShopApp-api
 
-## セットアップ方法
+## 💬 About
 
-$ git clone https://github.com/katsuomi/SearchShopApp-api-server.git 
+近くのお店が検索できるアプリのバックエンドAPIです。
+rubyのWebフレームワークRailsを利用。
 
-$ cd SearchShopApp-api-server
+## 🌻 Version
 
-$ bundle install 
+||Name|Version|What|
+|:-:|:-:|:-:|:-|
+|backend|ruby|2.6.3|高級言語|
+||Ruby on Rails|5.1.7|Webフレームワーク|
+|DB|Postgresql|11.5|データベース|
 
-$ rails db:migrate
+## 🔰 Install & Setup
 
-$ rails s
+#### 1. Dockerのダウンロード
 
+下記より、`Docker For Mac` か `Docker For Windows`をインストールして下さい。  
+[https://docs.docker.com/install/](https://docs.docker.com/install/)
 
-😄
+#### 2. ソースコードの取得
+
+```bash
+git clone git@github.com:katsuomi/SearchShopApp-api.git
+cd SearchShopApp-api
+```
+
+#### 3. 起動
+
+下記の手順で、コンテナを起動させて下さい。
+
+```bash
+# Dockerイメージの作成
+$ docker-compose build
+# bundle installを実行
+$ docker-compose exec web bundle install
+# dbの作成
+$ docker-compose exec web rails db:create
+# migrationの実行
+$ docker-compose exec web rails db:migrate
+# Dockerコンテナ起動
+$ docker-compose up -d
+# 確認
+$ docker-compose ps
+
+```
+
