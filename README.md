@@ -36,7 +36,7 @@ cd SearchShopApp-api
 $ docker-compose build
 
 # Dockerコンテナの起動
-$ docker-compose start
+$ docker-compose up -d
 
 # dbの作成
 $ docker-compose exec web rails db:create
@@ -46,8 +46,5 @@ $ docker-compose exec web rails db:migrate
 
 # 確認
 $ docker-compose ps
-
-# 確認
-$ docker-compose up
 ```
 
