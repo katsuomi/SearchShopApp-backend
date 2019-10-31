@@ -19,7 +19,7 @@ services:
     ports:
       - "3000:3000" # ホストからゲストへポートフォワード
     volumes:
-      - .:/SearchShopApp-api-server # ソースコード変更したらDocker側も即反映されるように
+      - .:/SearchShopApp-api # ソースコード変更したらDocker側も即反映されるように
 volumes:
   postgresql-data:
     driver: local
