@@ -23,8 +23,8 @@ rubyのWebフレームワークRuby on Railsを利用。
 #### 2. ソースコードの取得
 
 ```bash
-git clone https://github.com/katsuomi/SearchShopApp-api.git
-cd SearchShopApp-api
+git clone https://github.com/katsuomi/SearchShopApp-backend.git
+cd SearchShopApp-backend
 ```
 
 #### 3. 起動

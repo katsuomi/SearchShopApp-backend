@@ -8,8 +8,8 @@ default: &default
 
 development:
   <<: *default
-  database: SearchShopApp-api_development
+  database: SearchShopApp-backend_development
 
 test:
   <<: *default
-  database: SearchShopApp-api_test
+  database: SearchShopApp-backend_test
