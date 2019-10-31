@@ -34,16 +34,20 @@ cd SearchShopApp-api
 ```bash
 # Dockerイメージの作成
 $ docker-compose build
-# bundle installを実行
-$ docker-compose exec web bundle install
+
+# Dockerコンテナの起動
+$ docker-compose start
+
 # dbの作成
 $ docker-compose exec web rails db:create
+
 # migrationの実行
 $ docker-compose exec web rails db:migrate
-# Dockerコンテナ起動
-$ docker-compose up -d
+
 # 確認
 $ docker-compose ps
 
+# 確認
+$ docker-compose up
 ```
 
