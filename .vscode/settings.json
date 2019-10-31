@@ -1,8 +1,0 @@
-{
-  "editor.tabSize": 2,
-  "prettier.tabWidth": 2,
-  "prettier.spaceBeforeFunctionParen": true,
-  "prettier.disableLanguages": [
-    "react"
-  ]
-}
