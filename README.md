@@ -48,3 +48,10 @@ $ docker-compose exec web rails db:migrate
 $ docker-compose ps
 ```
 
+下記のコンテナが起動していれば、OKです。
+
+|host||
+|:-:|:-:|
+|backend|[http://localhost:3000](http://localhost:3000)|
+|swagger|[http://localhost:3001](http://localhost:3001)|
+|db|tcp:5432|
