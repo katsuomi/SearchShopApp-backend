@@ -3,17 +3,17 @@ module Api
     class ReviewsController < ApplicationController
       def index
         reviews = Review.all
-        render json: { status: 'SUCCESS' }
+        render json: { status: 'SUCCESS',data: reviews }
       end
 
       def show
         review = Review.find(params[:id])
-        render json: { status: 'SUCCESS' }
+        render json: { status: 'SUCCESS',data: review }
       end
 
       def shop_show
         shop_reviews = Review.where(shop_id: params[:shop_id])
-        render json: { status: 'SUCCESS' }
+        render json: { status: 'SUCCESS',data: shop_reviews }
       end
 
       def create
