@@ -19,6 +19,12 @@ Bundler.require(*Rails.groups)
 module RailsApi
   class Application < Rails::Application
     config.load_defaults 5.1
+    config.generators do |g|
+      g.test_framework :rspec, 
+      helper_specs: false, 
+      routing_specs: false
+      g.fixture_replacement :factory_bot, dir: "spec/factories"
+    end
     config.api_only = true
     config.middleware.insert_before 0, Rack::Cors do
       allow do
@@ -30,4 +36,5 @@ module RailsApi
     end
   end
 end
+
 
