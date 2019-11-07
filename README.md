@@ -39,12 +39,19 @@ $ docker-compose build
 $ docker-compose up -d
 
 # dbの作成
-$ docker-compose exec web rails db:create
+$ docker-compose exec backend rails db:create
 
 # migrationの実行
-$ docker-compose exec web rails db:migrate
+$ docker-compose exec backend rails db:migrate
 
 # 確認
 $ docker-compose ps
 ```
 
+下記のコンテナが起動していれば、OKです。
+
+|host||
+|:-:|:-:|
+|backend|[http://localhost:3000](http://localhost:3000)|
+|swagger|[http://localhost:3001](http://localhost:3001)|
+|db|tcp:5432|
