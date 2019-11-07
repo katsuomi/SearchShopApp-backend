@@ -1,0 +1,39 @@
+swagger: '2.0'
+info:
+  title: 予約パッケージ
+  description: 予約パッケージのAPIリファレンスです。
+  version: 1.0.0
+host: localhost:3000
+schemes:
+  - https
+tags:
+  - name: Admins
+    description: 管理画面使用API
+  - name: Products
+    description: 商品に関するAPI
+  - name: Orders
+    description: 注文に関するAPI
+  - name: Reservations
+    description: 予約に関するAPI
+  - name: Externals
+    description: 現地から呼び出すAPI
+  - name: SetProducts
+    description: セット販売に関するAPI
+  - name: Alipay
+    description: Alipay通知受取用のAPI
+
+paths:
+  /admin/v1/promotions:
+    get:
+      operationId: PromotionSearchIn
+      tags:
+      - Admins
+      summary: "プロモーションの一覧を表示"
+      description: "promotionの一覧を表示"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "成功"
+          schema:
+            $ref: "#/definitions/PromotionList"
