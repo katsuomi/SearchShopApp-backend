@@ -3,23 +3,23 @@ module Api
     class ReviewsController < ApplicationController
       def index
         reviews = Review.all
-        render json: { status: 'SUCCESS', message: 'loaded reviews', data: reviews }
+        render json: { status: 'SUCCESS' }
       end
 
       def show
         review = Review.find(params[:id])
-        render json: { status: 'SUCCESS', message: 'loaded the review', data: review }
+        render json: { status: 'SUCCESS' }
       end
 
       def shop_show
         shop_reviews = Review.where(shop_id: params[:shop_id])
-        render json: { status: 'SUCCESS', message: 'loaded the review', data: shop_reviews }
+        render json: { status: 'SUCCESS' }
       end
 
       def create
         review = Review.new(review_params)
         if review.save
-          render json: { status: 'SUCCESS', message: 'loaded the review', data: review }
+          render json: { status: 'SUCCESS' }
         else
           render json: { status: 'ERROR', message: 'review not saved', data: review.errors }
         end
@@ -28,15 +28,15 @@ module Api
       def destroy
         review = Review.find(params[:id])
         review.destroy
-        render json: { status: 'SUCCESS', message: 'deleted the review', data: review }
+        render json: { status: 'SUCCESS' }
       end
 
       def update
         review = Review.find(params[:id])
         if review.update(review_params)
-          render json: { status: 'SUCCESS', message: 'updated the review', data: review }
+          render json: { status: 'SUCCESS' }
         else
-          render json: { status: 'SUCCESS', message: 'loaded the review', data: review }
+          render json: { status: 'ERROR', message: 'review not saved', data: review.errors }
         end
       end
 

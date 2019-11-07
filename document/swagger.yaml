@@ -1,39 +1,72 @@
 swagger: '2.0'
 info:
-  title: 予約パッケージ
-  description: 予約パッケージのAPIリファレンスです。
+  title: SearchShopApp
+  description: SearchShopAppのAPIリファレンスです。
   version: 1.0.0
 host: localhost:3000
 schemes:
   - https
 tags:
-  - name: Admins
-    description: 管理画面使用API
-  - name: Products
-    description: 商品に関するAPI
-  - name: Orders
-    description: 注文に関するAPI
-  - name: Reservations
-    description: 予約に関するAPI
-  - name: Externals
-    description: 現地から呼び出すAPI
-  - name: SetProducts
-    description: セット販売に関するAPI
-  - name: Alipay
-    description: Alipay通知受取用のAPI
+  - name: Reviews
+    description: 店舗ごとのレビューのAPI
 
 paths:
-  /admin/v1/promotions:
+  /api/v1/reviews:
     get:
-      operationId: PromotionSearchIn
       tags:
-      - Admins
-      summary: "プロモーションの一覧を表示"
-      description: "promotionの一覧を表示"
+      - Reviews
+      summary: "全てのレビューの表示"
+      description: "全ての店舗の全てのレビューを一覧表示"
       produces:
       - "application/json"
       responses:
         200:
           description: "成功"
           schema:
-            $ref: "#/definitions/PromotionList"
+            description: 全てのレビューの表示
+            type: "object"
+            properties:
+              status:
+                type: "string"
+                description: 成功メッセージ
+                example: "success"
+    post:
+      summary: レビューの新規作成
+      tags:
+        - Reviews
+      description: レビューの新規作成
+      parameters:
+        - in: body
+          required: true
+          schema:
+            description: レビューの新規作成
+            type: "object"
+            properties:
+              id:
+                type: "integer"
+                example: 1
+              star:
+                type: "integer"
+                example: 3   
+              comment:
+                type: "string"
+                example: "contentcontent"   
+              shop_id:
+                type: "string"
+                example: "0138rfhofjf"   
+              created_at:
+                type: "string"
+                format: date-time  
+              updated_at: 
+                type: "string"
+                format: date-time  
+      responses:
+        '200':
+          description: 成功
+          schema:
+            type: object
+            properties:
+              status:
+                type: "string"
+                description: 成功メッセージ
+                example: "success"
