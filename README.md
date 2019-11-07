@@ -44,6 +44,9 @@ $ docker-compose exec backend rails db:create
 # migrationの実行
 $ docker-compose exec backend rails db:migrate
 
+# rspecのinstall
+$ docker-compose exec backend rails g rspec:install
+
 # 確認
 $ docker-compose ps
 ```
