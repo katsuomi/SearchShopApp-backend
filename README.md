@@ -2,7 +2,7 @@
 
 ## 💬 About
 
-近くのお店が検索できるアプリのバックエンドAPIです。
+近くのお店が検索できるアプリ~SearchShopApp~のバックエンドAPIです。
 rubyのWebフレームワークRuby on Railsを利用。
 
 ## 🌻 Version
