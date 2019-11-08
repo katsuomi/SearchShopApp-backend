@@ -34,7 +34,7 @@ module Api
       def update
         review = Review.find(params[:id])
         if review.update(review_params)
-          render json: { status: 'SUCCESS' }
+          render json: { status: 'SUCCESS',data: review }
         else
           render json: { status: 'ERROR', message: 'review not saved', data: review.errors }
         end
