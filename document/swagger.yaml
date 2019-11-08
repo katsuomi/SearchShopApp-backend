@@ -14,59 +14,110 @@ paths:
   /api/v1/reviews:
     get:
       tags:
-      - Reviews
-      summary: "全てのレビューの表示"
-      description: "全ての店舗の全てのレビューを一覧表示"
+      - reviews
+      summary: 全てのレビューの表示
+      description: 全ての店舗の全てのレビューを一覧表示
       produces:
-      - "application/json"
+      - application/json
       responses:
         200:
-          description: "成功"
-          schema:
-            description: 全てのレビューの表示
-            type: "object"
-            properties:
-              status:
-                type: "string"
-                description: 成功メッセージ
-                example: "success"
-    post:
-      summary: レビューの新規作成
-      tags:
-        - Reviews
-      description: レビューの新規作成
-      parameters:
-        - in: body
-          required: true
-          schema:
-            description: レビューの新規作成
-            type: "object"
-            properties:
-              id:
-                type: "integer"
-                example: 1
-              star:
-                type: "integer"
-                example: 3   
-              comment:
-                type: "string"
-                example: "contentcontent"   
-              shop_id:
-                type: "string"
-                example: "0138rfhofjf"   
-              created_at:
-                type: "string"
-                format: date-time  
-              updated_at: 
-                type: "string"
-                format: date-time  
-      responses:
-        '200':
           description: 成功
           schema:
+            description: 全てのレビューの表示
             type: object
             properties:
               status:
-                type: "string"
+                type: string
                 description: 成功メッセージ
-                example: "success"
+                example: success
+              data:
+                type: array
+                description: 全てのレビューデータ
+                example:  [
+                    {
+                      id: 1,
+                      star: 3,
+                      comment: "content",
+                      shop_id: "8hff0j84r8"
+                    },
+                    {
+                      id: 2,
+                      star: 3,
+                      comment: "content",
+                      shop_id: "sdfoj30jaf0"
+                    },                
+                  ]
+    post:
+      tags: 
+      - reviews
+      summary: 新規レビュー登録
+      description: レビュー情報をreviewsテーブルに1件登録する
+      produces: 
+      - application/json
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/components/schemas/Review'
+      responses:
+        200:
+          description: 成功
+        400:
+          description: 失敗
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+components:
+  schemas: # スキーマオブジェクトの定義
+    Review:
+      type: object
+      required:
+        - id
+        - star
+        - comment
+        - shop_id
+      properties:
+        id:
+          type: integer
+          example: 1
+        star:
+          type: integer
+          example: 3
+        comment:
+          type: string
+          example: comment
+        shop_id:
+          type: string
+          example: dfjaoid7g9f398
+        created_at:
+          type: "string"
+          format: "date-time"
+        updated_at:
+          type: "string"
+          format: "date-time"
