@@ -4,14 +4,15 @@ info:
   description: SearchShopAppのAPIリファレンスです。
   version: 1.0.0
 host: localhost:3000
+basePath: "/api/v1"
 schemes:
   - https
 tags:
-  - name: Reviews
+  - name: reviews
     description: 店舗ごとのレビューのAPI
 
 paths:
-  /api/v1/reviews:
+  /reviews:
     get:
       tags:
       - reviews
@@ -65,13 +66,107 @@ paths:
           description: 成功
         400:
           description: 失敗
-
-
-
-
-
-
-
+  /reviews/{review_id}:
+    get:
+      tags:
+      - reviews
+      summary: 特定のレビューの表示
+      description: 特定のレビューの表示
+      produces:
+      - application/json
+      responses:
+        200:
+          description: 成功
+          schema:
+            description: 特定のレビューの表示
+            type: object
+            properties:
+              status:
+                type: string
+                description: 成功メッセージ
+                example: success
+              data:
+                type: object
+                description: 全てのレビューデータ
+                example:  {
+                  id: 1,
+                  star: 3,
+                  comment: "content",
+                  shop_id: "8hff0j84r8"
+                }
+    put:
+      tags: 
+      - reviews
+      summary: 特定のレビューの更新
+      description: 特定のレビューの更新
+      produces: 
+      - application/json
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/components/schemas/Review'
+      responses:
+        200:
+          description: 成功
+        400:
+          description: 失敗            
+    delete:
+      tags: 
+      - reviews
+      summary: 特定のレビューの削除
+      description: 特定のレビューの削除
+      produces: 
+      - application/json
+      responses:
+        200:
+          description: 成功
+        400:
+          description: 失敗    
+  /shop_show/:
+    get:
+      tags:
+      - reviews
+      summary: 特定の店舗の全てのレビューの表示
+      description: 特定の店舗の全てのレビューの表示
+      produces:
+      - application/json
+      parameters:
+      - name: shop_id
+        in: path # パラメータをパス内に含める
+        description: shop id
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: 成功
+          schema:
+            description: 特定の店舗の全てのレビューの表示
+            type: object
+            properties:
+              status:
+                type: string
+                description: 成功メッセージ
+                example: success
+              data:
+                type: array
+                description: 特定の店舗の全てのレビューデータ
+                example:  [
+                    {
+                      id: 1,
+                      star: 3,
+                      comment: "content",
+                      shop_id: "8hff0j84r8"
+                    },
+                    {
+                      id: 2,
+                      star: 3,
+                      comment: "content",
+                      shop_id: "8hff0j84r8"
+                    },                
+                  ]
 
 
 
