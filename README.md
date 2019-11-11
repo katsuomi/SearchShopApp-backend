@@ -30,7 +30,6 @@ $ cd SearchShopApp-backend
 #### 3. 起動
 
 下記の手順で、コンテナを起動させて下さい。
-
 ```bash
 # Dockerイメージの作成
 $ docker-compose build
