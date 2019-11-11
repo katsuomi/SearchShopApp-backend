@@ -74,9 +74,5 @@ RSpec.describe Review, type: :request do
       # 要求した特定の店舗のreviewのみ取得した事を確認する。
       expect(json['data'].length).to eq(2)
     end
-
-
-
-
   end
 end
