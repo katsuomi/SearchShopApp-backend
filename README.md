@@ -2,55 +2,55 @@
 
 ## 💬 About
 
-近くのお店が検索できるアプリ-SearchShopApp-のバックエンドAPIです。
-rubyのWebフレームワークRuby on Railsを利用。
+This repository is backend API on SearchShopApp,which can find nearby restaurants.
 
 ## 🌻 Version
 
 ||Name|Version|What|
 |:-:|:-:|:-:|:-|
-|backend|ruby|2.6.3|高級言語|
-||Ruby on Rails|5.1.7|Webフレームワーク|
-|DB|Postgresql|11.5|データベース|
+|backend|ruby|2.6.3|High-level languages|
+||Ruby on Rails|5.1.7|Web FrameWork|
+|DB|Postgresql|11.5|database|
 
 ## 🔰 Install & Setup
 
-#### 1. Dockerのダウンロード
+#### 1. Download Docker
 
-下記より、`Docker For Mac` か `Docker For Windows`をインストールして下さい。  
+The following procedure, please install Docker For Mac or Docker For Windows
+
 [https://docs.docker.com/install/](https://docs.docker.com/install/)
 
-#### 2. ソースコードの取得
+#### 2. Getting source code
 
 ```bash
 $ git clone https://github.com/katsuomi/SearchShopApp-backend.git
 $ cd SearchShopApp-backend
 ```
 
-#### 3. 起動
+#### 3. Start-up
 
-下記の手順で、コンテナを起動させて下さい。
+The following procedure, start the container.
 ```bash
-# Dockerイメージの作成
+# Create Docker image
 $ docker-compose build
 
-# Dockerコンテナの起動
-$ docker-compose up -d
+# Start Docker container
+$ docker-compose up
 
-# dbの作成
+# create DB
 $ docker-compose exec backend rails db:create
 
-# migrationの実行
+# migration
 $ docker-compose exec backend rails db:migrate
 
-# テストの実行
+# test
 $ docker-compose exec backend rspec
 
-# 確認
+# confirm
 $ docker-compose ps
 ```
 
-下記のコンテナが起動していれば、OKです。
+If the following local server started, it's ok.
 
 |host||
 |:-:|:-:|
